@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 
-namespace tinc.Repository
+namespace SE.Repository
 {
     public class Program
     {
@@ -16,14 +16,14 @@ namespace tinc.Repository
         public Context.RepositoryContext Create(DbContextFactoryOptions options)
         {
             var builder = new DbContextOptionsBuilder<Context.RepositoryContext>();
-            builder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=tinc;Trusted_Connection=True;MultipleActiveResultSets=true");
+            builder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=SE;Trusted_Connection=True;MultipleActiveResultSets=true");
             return new Context.RepositoryContext(builder.Options);
         }
 
         Context.RepositoryContext IDbContextFactory<Context.RepositoryContext>.Create(DbContextFactoryOptions options)
         {
             var builder = new DbContextOptionsBuilder<Context.RepositoryContext>();
-            builder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=tinc;Trusted_Connection=True;MultipleActiveResultSets=true");
+            builder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=SE;Trusted_Connection=True;MultipleActiveResultSets=true");
             return new Context.RepositoryContext(builder.Options);
         }
     }

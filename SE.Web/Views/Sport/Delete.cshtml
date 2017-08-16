@@ -1,0 +1,31 @@
+﻿@using SE.Web.Models
+@model SE.Web.Models.Sport
+
+@{
+    ViewBag.Title = "Delete Sport";
+}
+
+<h2>@ViewBag.Title</h2>
+<p class="error">@ViewBag.ErrorMessage</p>
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <b>Name: </b> @Model.Name
+        </dt>
+
+        <dt>
+            <b>@Html.DisplayNameFor(model => model.Responsible): </b> @Model.Responsible    
+        </dt>
+    </dl>
+   
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,12 +1,13 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json.Serialization;
-using tinc.Business;
-using tinc.Domain.Interfaces.Manager;
-using tinc.Domain.Interfaces.Repository;
-using tinc.Repository;
+using SE.Business;
+using SE.Domain.Interfaces.Manager;
+using SE.Domain.Interfaces.Repository;
+using SE.Repository;
+
 //using Swashbuckle.AspNetCore.Swagger;
 
-namespace tinc.Web.Infrastructure
+namespace SE.Web.Infrastructure
 {
     /// <summary>
     /// 

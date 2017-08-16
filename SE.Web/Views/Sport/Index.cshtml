@@ -1,28 +1,41 @@
-@model IEnumerable<tinc.Web.Models.Sport>
-@{
-    
-}
-<h2>Sports List</h2>
-<hr />
-<br />
-<form asp-controller="Sport" asp-action="Index" method="post">
-    <div class="list-group">
-        @if (Model.Any())
-        {
-             foreach(var item in Model)
-             {
-                 <div class="list-group-item justify-content-between">
+@using SE.Web.Models
+@model IEnumerable<SE.Web.Models.Sport>
 
-                         <b>Name: </b>@item.Name
-                         <br/>
-                         <b>Responsible: </b>@item.Responsible
-                 </div>
-             }
-            <br/>
-        }
-        else
-        {
-            <p>There is no data.</p>
-        }
-    </div>
-</form>
+@{
+    ViewBag.Title = "Sports";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Responsible
+        </th>
+
+        <th></th>
+    </tr>
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Responsible)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>
+<br />

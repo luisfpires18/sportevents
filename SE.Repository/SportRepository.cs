@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using tinc.Domain.Entities;
-using tinc.Domain.Interfaces.Repository;
-using tinc.Repository.Context;
+using SE.Domain.Entities;
+using SE.Domain.Interfaces.Repository;
+using SE.Repository.Context;
 
-namespace tinc.Repository
+namespace SE.Repository
 {
     public class SportRepository : ISportRepository
     {
@@ -19,10 +19,6 @@ namespace tinc.Repository
             _context = repositoryContext;
         }
 
-        //public SportRepository()
-        //{
-        //    _context = new RepositoryContext();
-        //}
         public void Create<T>(T entity)
         {
             var entityToSave = entity as Sport;
@@ -31,20 +27,35 @@ namespace tinc.Repository
                 _context.Sport.Add(entityToSave);
                 _context.SaveChanges();
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw;
+                var error = e.Message;
             }
         }
 
         public void Delete<T>(T entity)
         {
-            throw new NotImplementedException();
+            var entityToDelete = entity as Sport;
+            try
+            {
+                var entityInDb = _context.Sport.Single(s => s.SportID == entityToDelete.SportID);
+                _context.Sport.Remove(entityInDb);
+                _context.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                var error = e.Message;
+            }
+
         }
 
         public T Get<T>(Guid id)
         {
-            throw new NotImplementedException();
+            object obj = _context.Sport.AsNoTracking().Single(s => s.SportID == id);
+            if (obj is T)
+                return (T) obj;
+
+            return default(T);
         }
 
         public List<T> GetAll<T>()
@@ -61,7 +72,21 @@ namespace tinc.Repository
 
         public void Update<T>(T entity)
         {
-            throw new NotImplementedException();
+            var entityToEdit = entity as Sport;
+            try
+            {
+                var entityInDb = _context.Sport.Single(s => s.SportID == entityToEdit.SportID);
+                entityInDb.Name = entityToEdit.Name;
+                entityInDb.Responsible = entityToEdit.Responsible;
+
+                _context.Sport.Update(entityInDb);
+                _context.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                var error = e.Message;
+            }
+
         }
     }
 }

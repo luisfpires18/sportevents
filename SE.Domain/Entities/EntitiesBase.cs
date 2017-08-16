@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace tinc.Domain.Entities
+namespace SE.Domain.Entities
 {
     public  class EntitiesBase
     {

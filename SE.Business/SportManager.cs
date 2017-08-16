@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using SE.Business.Code;
 using SE.DataTransfer;
-using tinc.Business.Code;
-using tinc.Domain.Interfaces.Manager;
-using tinc.Domain.Interfaces.Repository;
+using SE.Domain.Interfaces.Manager;
+using SE.Domain.Interfaces.Repository;
 
-namespace tinc.Business
+namespace SE.Business
 {
     public class SportManager : ISportManager
     {

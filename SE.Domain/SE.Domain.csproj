@@ -47,11 +47,14 @@
     <Compile Include="Entities\Event.cs" />
     <Compile Include="Entities\Extra.cs" />
     <Compile Include="Entities\Organization.cs" />
+    <Compile Include="Entities\Payment.cs" />
     <Compile Include="Entities\Person.cs" />
     <Compile Include="Entities\Request.cs" />
     <Compile Include="Entities\Result.cs" />
     <Compile Include="Entities\Sport.cs" />
     <Compile Include="Entities\Team.cs" />
+    <Compile Include="Entities\Enum\TShirt.cs" />
+    <Compile Include="Entities\Enum\Gender.cs" />
     <Compile Include="Interfaces\Manager\ISportManager.cs" />
     <Compile Include="Interfaces\Repository\IRepositoryBase.cs" />
     <Compile Include="Interfaces\Repository\ISportRepository.cs" />

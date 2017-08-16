@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
+using SE.Web.Models;
 
-namespace tinc.Web.Infrastructure
+namespace SE.Web.Infrastructure
 {
     public class ServicesAutoMapperConfig
     {
@@ -26,8 +27,8 @@ namespace tinc.Web.Infrastructure
             var config = new MapperConfiguration(cfg =>
             {
 
-                cfg.CreateMap<SE.DataTransfer.Sport, Models.Sport>();
-                cfg.CreateMap<Models.Sport, SE.DataTransfer.Sport>();
+                cfg.CreateMap<DataTransfer.Sport, Sport>();
+                cfg.CreateMap<Sport, DataTransfer.Sport>();
 
 
 

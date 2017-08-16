@@ -1,13 +1,17 @@
 ﻿using System;
 
-namespace tinc.Domain.Entities
+namespace SE.Domain.Entities
 {
     public class Request
     {
-        public Guid ID { get; set; }
+        public Guid RequestID { get; set; }
 
         public string RequestType { get; set; }
         public string Subject { get; set; }
         public DateTime RequestDate { get; set; }
+        public Guid? PersonID { get; set; }
+
+        // Navigation;
+        public virtual Person Person { get; set; }
     }
 }

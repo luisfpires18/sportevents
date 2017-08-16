@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 
-namespace tinc.Web.Models
+namespace SE.Web.Models
 {
     public class Sport : Organization
     {

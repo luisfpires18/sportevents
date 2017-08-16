@@ -1,12 +1,7 @@
 ﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using SE.DataTransfer;
 
-namespace tinc.Business.Code
+namespace SE.Business.Code
 {
     public class Mapping
     {

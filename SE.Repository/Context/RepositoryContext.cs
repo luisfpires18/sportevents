@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using tinc.Domain.Entities;
+using SE.Domain.Entities;
 
-namespace tinc.Repository.Context
+namespace SE.Repository.Context
 {
     public class RepositoryContext : DbContext
     {
@@ -14,14 +14,17 @@ namespace tinc.Repository.Context
         {
 
         }
-        public DbSet<Sport> Sport { get; set; }
+
+        public DbSet<Category> Category { get; set; }
+        public DbSet<Competition> Competition { get; set; }
+        public DbSet<Enrollment> Enrollment { get; set; }
         public DbSet<Event> Event { get; set; }
         public DbSet<Extra> Extra { get; set; }
-        public DbSet<Competition> Competition { get; set; }
-        public DbSet<Result> Result { get; set; }
-        public DbSet<Category> Category { get; set; }
-        public DbSet<Enrollment> Enrollment { get; set; }
+        public DbSet<Payment> Payment { get; set; }
         public DbSet<Person> Person { get; set; }
+        public DbSet<Request> Request { get; set; }
+        public DbSet<Result> Result { get; set; }
+        public DbSet<Sport> Sport { get; set; }
         public DbSet<Team> Team { get; set; }
 
 
@@ -29,7 +32,7 @@ namespace tinc.Repository.Context
         {
 
             // BUILDER - Sport
-            builder.Entity<Sport>().HasKey(s => s.ID);
+            builder.Entity<Sport>().HasKey(s => s.SportID);
             builder.Entity<Sport>().HasIndex(s => s.Name);
           
 
