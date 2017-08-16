@@ -40,7 +40,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Category.cs" />
+    <Compile Include="Entities\Competition.cs" />
+    <Compile Include="Entities\Enrollment.cs" />
+    <Compile Include="Entities\EntitiesBase.cs" />
+    <Compile Include="Entities\Event.cs" />
+    <Compile Include="Entities\Extra.cs" />
+    <Compile Include="Entities\Organization.cs" />
+    <Compile Include="Entities\Person.cs" />
+    <Compile Include="Entities\Request.cs" />
+    <Compile Include="Entities\Result.cs" />
+    <Compile Include="Entities\Sport.cs" />
+    <Compile Include="Entities\Team.cs" />
+    <Compile Include="Interfaces\Manager\ISportManager.cs" />
+    <Compile Include="Interfaces\Repository\IRepositoryBase.cs" />
+    <Compile Include="Interfaces\Repository\ISportRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SE.DataTransfer\SE.DataTransfer.csproj">
+      <Project>{7cfa8acd-7483-4ed2-91ad-22bf02616497}</Project>
+      <Name>SE.DataTransfer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

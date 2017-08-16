@@ -1,0 +1,28 @@
+@model IEnumerable<tinc.Web.Models.Sport>
+@{
+    
+}
+<h2>Sports List</h2>
+<hr />
+<br />
+<form asp-controller="Sport" asp-action="Index" method="post">
+    <div class="list-group">
+        @if (Model.Any())
+        {
+             foreach(var item in Model)
+             {
+                 <div class="list-group-item justify-content-between">
+
+                         <b>Name: </b>@item.Name
+                         <br/>
+                         <b>Responsible: </b>@item.Responsible
+                 </div>
+             }
+            <br/>
+        }
+        else
+        {
+            <p>There is no data.</p>
+        }
+    </div>
+</form>
