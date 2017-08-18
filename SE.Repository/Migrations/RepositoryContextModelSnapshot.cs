@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using SE.Repository.Context;
-using SE.Domain.Entities.Enum;
 
 namespace SE.Repository.Migrations
 {

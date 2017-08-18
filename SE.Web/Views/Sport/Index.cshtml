@@ -1,41 +1,42 @@
-@using SE.Web.Models
-@model IEnumerable<SE.Web.Models.Sport>
-
+@model List<SE.Web.Models.Sport>
 @{
-    ViewBag.Title = "Sports";
+    ViewBag.Title ="Sports";
 }
-
 <h2>@ViewBag.Title</h2>
 
-<table class="table">
-    <tr>
-        <th>
-            Name
-        </th>
-        <th>
-            Responsible
-        </th>
-
-        <th></th>
-    </tr>
+<hr />
+<a asp-area="" asp-action="Create" class="btn btn-default pull-right">Create New</a>
+<br /><br /><br />
 
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Responsible)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-            </td>
-        </tr>
-    }
 
-</table>
-<br />
+<form asp-controller="Sport" asp-action="Index" method="post">
+    <div class="list-group">
+        
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            <div class="list-group-item justify-content-between">
+
+                <input asp-for="@Model[i].isSelected" type="checkbox"/>
+
+                <a asp-controller="Sport"
+                   asp-action="Details"
+                   asp-route-id="@Model[i].SportID">
+                    @Model[i].Name
+                </a>
+
+                <a asp-controller="Sport"
+                   asp-action="Edit"
+                   asp-route-id="@Model[i].SportID"
+                   class="badge badge-default badge-pill pull-right">
+                    Edit
+                </a>
+            </div>
+            <input type="hidden" asp-for="@Model[i].Name"/>
+            <input type="hidden" asp-for="@Model[i].SportID"/>
+        }
+        <br/>
+        <button type="submit" class="btn btn-default">Delete</button>
+        <a class="btn btn-default" asp-controller="Home" asp-action="Index">Go Back</a>
+    </div>
+</form>

@@ -43,9 +43,12 @@
     <Compile Include="Category.cs" />
     <Compile Include="Competition.cs" />
     <Compile Include="Enrollment.cs" />
+    <Compile Include="Enum\Gender.cs" />
+    <Compile Include="Enum\TShirt.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="Extra.cs" />
     <Compile Include="Organization.cs" />
+    <Compile Include="Payment.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Request.cs" />

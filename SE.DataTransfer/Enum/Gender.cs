@@ -1,4 +1,4 @@
-﻿namespace SE.Domain.Entities.Enum
+﻿namespace SE.DataTransfer.Enum
 {
     public enum Gender
     {

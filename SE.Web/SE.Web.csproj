@@ -40,6 +40,9 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Views\Shared\_Navbar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\SE.Business\SE.Business.csproj" />
     <ProjectReference Include="..\SE.DataTransfer\SE.DataTransfer.csproj" />
     <ProjectReference Include="..\SE.Domain\SE.Domain.csproj" />

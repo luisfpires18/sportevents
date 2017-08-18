@@ -8,10 +8,10 @@ namespace SE.Domain.Interfaces.Manager
 {
     public interface ISportManager
     {
-        Guid Create(SE.DataTransfer.Sport sport);
-        void Update(SE.DataTransfer.Sport sport);
-        void Delete(SE.DataTransfer.Sport sport);
-        SE.DataTransfer.Sport Get(Guid id);
-        List<SE.DataTransfer.Sport> GetAll();
+        Guid Create(DataTransfer.Sport sport);
+        void Update(DataTransfer.Sport sport);
+        void Delete(DataTransfer.Sport sport);
+        DataTransfer.Sport Get(Guid id);
+        List<DataTransfer.Sport> GetAll();
     }
 }

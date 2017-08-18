@@ -18,14 +18,14 @@ namespace SE.Business
 
         public Guid Create(Sport sport)
         {
-            sport.ID = Guid.NewGuid();
+            sport.SportID = Guid.NewGuid();
             _repository.Create(Mapping.Mapped.Map<Domain.Entities.Sport>(sport));
-            return sport.ID;
+            return sport.SportID;
         }
 
         public void Delete(Sport sport)
         {
-            if(sport.ID != null)
+            if(sport.SportID != null)
             {
                 _repository.Delete(Mapping.Mapped.Map<Domain.Entities.Sport>(sport));
             }
@@ -49,7 +49,7 @@ namespace SE.Business
 
         public void Update(Sport sport)
         {
-            if (sport.ID != null)
+            if (sport.SportID != null)
             {
                 _repository.Update(Mapping.Mapped.Map<Domain.Entities.Sport>(sport));
             }

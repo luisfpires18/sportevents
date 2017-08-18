@@ -5,12 +5,11 @@ using Microsoft.AspNetCore.Mvc;
 using SE.DataTransfer;
 using SE.Domain.Interfaces.Manager;
 using SE.Web.Infrastructure;
-
-// For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+using Sport = SE.Web.Models.Sport;
 
 namespace SE.Web.Controllers
 {
-    public partial class SportController : Controller
+    public class SportController : Controller
     {
         private readonly ISportManager _manager;
 
@@ -23,43 +22,59 @@ namespace SE.Web.Controllers
         public IActionResult Index()
         {
             var sportList = _manager.GetAll();
-            var modelList = ServicesAutoMapperConfig.Mapped.Map<List<Models.Sport>>(sportList);
+            var modelList = ServicesAutoMapperConfig.Mapped.Map<List<Sport>>(sportList);
             return View(modelList);
         }
 
+        [HttpPost]
+        public IActionResult Index(List<Sport> Sports)
+        {
+            for (int i = 0; i < Sports.Count; i++)
+            {
+                if (Sports[i].isSelected)
+                {
+                    var sport = _manager.Get((Sports[i].SportID));
+
+                    if (sport != null)
+                        _manager.Delete(sport);
+                }
+            }
+            return RedirectToAction("Index", "Sport");
+        }
+
         [HttpGet]
-        public ActionResult Details(Guid? id)
+        public IActionResult Details(Guid? id)
         {
             if (id == null)
             {
                 return View();
             }
 
-            Sport sport = _manager.Get(id.Value);
+            var sport = _manager.Get(id.Value);
             var sportModel = ServicesAutoMapperConfig.Mapped.Map<Models.Sport>(sport);
             return View(sportModel);
         }
 
         [HttpGet]
-        public ActionResult Create()
+        public IActionResult Create()
         {
             return View();
         }
 
         [HttpGet]
-        public ActionResult Edit(Guid? id)
+        public IActionResult Edit(Guid? id)
         {
             if (id == null)
             {
                 return View();
             }
-            Sport sport = _manager.Get(id.Value);
+            var sport = _manager.Get(id.Value);
             var sportModel = ServicesAutoMapperConfig.Mapped.Map<Models.Sport>(sport);
             return View(sportModel);
         }
 
         [HttpGet]
-        public ActionResult Delete(Guid? id, bool? saveChangesError = false)
+        public IActionResult Delete(Guid? id, bool? saveChangesError = false)
         {
             if (id == null)
             {
@@ -70,14 +85,14 @@ namespace SE.Web.Controllers
                 ViewBag.ErrorMessage =
                     "Delete failed. Try again, and if the problem persists see your system administrator.";
             }
-            Sport sport = _manager.Get(id.Value);
+            var sport = _manager.Get(id.Value);
             var sportModel = ServicesAutoMapperConfig.Mapped.Map<Models.Sport>(sport);
             return View(sportModel);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Models.Sport sport)
+        public IActionResult Create(Models.Sport sport)
         {
             try
             {
@@ -89,15 +104,14 @@ namespace SE.Web.Controllers
             }
             catch (Exception)
             {
-                ModelState.AddModelError("",
-                    "Unable to save changes. Try again, and if the problem persists see your system administrator.");
+                ModelState.AddModelError("","Unable to save changes. Try again, and if the problem persists see your system administrator.");
             }
             return View(sport);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Models.Sport sport)
+        public IActionResult Edit(Models.Sport sport)
         {
             try
             {
@@ -117,7 +131,7 @@ namespace SE.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(Guid id)
+        public IActionResult Delete(Guid id)
         {
             try
             {

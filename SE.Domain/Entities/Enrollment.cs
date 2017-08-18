@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using SE.Domain.Entities.Enum;
+using SE.DataTransfer.Enum;
 
 namespace SE.Domain.Entities
 {

@@ -5,7 +5,9 @@ namespace SE.DataTransfer
 {
     public class Sport : Organization
     {
-        public Guid ID { get; set; }
+        public Guid SportID { get; set; }
+
+        // Navigation;
         public virtual ICollection<Event> Events { get; set; }
     }
 }
