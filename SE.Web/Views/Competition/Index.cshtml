@@ -1,0 +1,57 @@
+@model List<SE.Web.Models.Competition>
+@{
+    ViewBag.Title = "Competitions";
+}
+<h2>@ViewBag.Title</h2>
+
+<hr />
+<a asp-action="Create" class="btn btn-default pull-right">Create New</a>
+<br /><br /><br />
+<form asp-controller="Competition" asp-action="Index" method="post">
+    <table class="table">
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Distance</th>
+            <th>Event</th>
+            <th></th>
+        </tr>
+        @for (var i = 0; i < Model.Count(); i++)
+        {
+            <tr>
+                <td>
+                    <input type="hidden" asp-for="@Model[i].CompetitionID" />
+                    <input asp-for="@Model[i].isSelected" type="checkbox" />
+                </td>
+                <td>
+                    @Model[i].Name
+                </td>
+                <td>
+                    @Model[i].Distance
+                </td>
+
+
+                @if (Model[i].Event != null)
+                {
+                    <td>
+                        @Model[i].Event.Name
+                    </td>
+                }
+
+                <td>
+                    <a asp-action="Details" class="btn btn-default pull-right" asp-route-id="@Model[i].CompetitionID">Details</a>
+                    <a asp-action="Edit" class="btn btn-default pull-right" asp-route-id="@Model[i].CompetitionID">Edit</a>
+                    <a asp-action="Delete" class="btn btn-default pull-right" asp-route-id="@Model[i].CompetitionID">Delete</a>
+                </td>
+            </tr>
+        }
+
+    </table>
+    <a class="btn btn-default" asp-controller="Home" asp-action="Index">Go Back</a>
+    @{
+        if (Model.Count != 0)
+        {
+            <button type="submit" class="btn btn-default">Delete</button>
+        }
+    }
+</form>

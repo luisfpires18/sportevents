@@ -1,0 +1,60 @@
+@model SE.Web.ViewModels.EventData
+@{
+    ViewBag.Title = "Events";
+}
+<h2>@ViewBag.Title</h2>
+
+<hr />
+<a asp-action="Create" class="btn btn-default pull-right">Create New</a>
+<br /><br /><br />
+<form asp-controller="Event" asp-action="Index" method="post">
+    <table class="table">
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Local</th>
+            <th>Date</th>
+            <th>Sport</th>
+            <th></th>
+        </tr>
+        @for (var i = 0; i < Model.Events.Count(); i++)
+        {
+            <tr>
+                <td>
+                    <input type="hidden" asp-for="@Model.Events[i].EventID" />
+                    <input asp-for="@Model.Events[i].isSelected" type="checkbox" />
+                </td>
+                <td>
+                    @Model.Events[i].Name
+                </td>
+                <td>
+                    @Model.Events[i].Local
+                </td>
+                <td>
+                    @Model.Events[i].EventDate.ToShortDateString()
+                </td>
+
+                @if (@Model.Events[i].Sport != null)
+                {
+                    <td>
+                        @Model.Events[i].Sport.Name
+                    </td>
+                }
+
+                <td>
+                    <a asp-action="Details" class="btn btn-default pull-right" asp-route-id="@Model.Events[i].EventID">Details</a>
+                    <a asp-action="Edit" class="btn btn-default pull-right" asp-route-id="@Model.Events[i].EventID">Edit</a>
+                    <a asp-action="Delete" class="btn btn-default pull-right" asp-route-id="@Model.Events[i].EventID">Delete</a>
+                </td>
+            </tr>
+        }
+
+    </table>
+    <a class="btn btn-default" asp-controller="Home" asp-action="Index">Go Back</a>
+    @{
+        if (Model.Events.Count != 0)
+        {
+            <button type="submit" class="btn btn-default">Delete</button>
+        }
+    }
+</form>

@@ -1,5 +1,4 @@
-﻿@using SE.Web.Models
-@model SE.Web.Models.Sport
+﻿@model SE.Web.Models.Sport
 
 @{
     ViewBag.Title = "Sport Details";
@@ -7,20 +6,11 @@
 
 <h2>@ViewBag.Title</h2>
 
-<div>
-    <h4>Student</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+    <div>
+        <h4><b>Name:</b> @Model.Name</h4>
+        <h4><b>Responsible:</b> @Model.Responsible</h4>
+    </div>
+<br /><br />
+<a class="btn btn-default" asp-action="Index">Back to List</a>
+<a class="btn btn-default" asp-action="Delete" asp-route-id="@Model.SportID">Delete</a>
 
-        <dd>
-            @Html.DisplayFor(model => model.Responsible)
-        </dd>
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.SportID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

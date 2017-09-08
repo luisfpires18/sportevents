@@ -24,11 +24,18 @@ namespace SE.Business.Code
 
             var config = new MapperConfiguration(cfg =>
             {
-
                 // Sport;
                 cfg.CreateMap<Domain.Entities.Sport, Sport>();
                 cfg.CreateMap<Sport, Domain.Entities.Sport>();
-                
+
+                // Event;
+                cfg.CreateMap<Domain.Entities.Event, Event>();
+                cfg.CreateMap<Event, Domain.Entities.Event>();
+
+                // Competition;
+                cfg.CreateMap<Domain.Entities.Competition, Competition>();
+                cfg.CreateMap<Competition, Domain.Entities.Competition>();
+
 
 
             });

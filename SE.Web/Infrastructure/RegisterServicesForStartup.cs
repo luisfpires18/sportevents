@@ -44,6 +44,12 @@ namespace SE.Web.Infrastructure
             services.AddTransient<ISportManager, SportManager>();
             services.AddTransient<ISportRepository, SportRepository>();
 
+            services.AddTransient<IEventManager, EventManager>();
+            services.AddTransient<IEventRepository, EventRepository>();
+
+            services.AddTransient<ICompetitionManager, CompetitionManager>();
+            services.AddTransient<ICompetitionRepository, CompetitionRepository>();
+
 
             //services.AddTransient<IMessageRepository, MessageRepository>();
 

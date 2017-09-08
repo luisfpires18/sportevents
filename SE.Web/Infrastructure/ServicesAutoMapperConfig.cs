@@ -30,6 +30,12 @@ namespace SE.Web.Infrastructure
                 cfg.CreateMap<DataTransfer.Sport, Sport>();
                 cfg.CreateMap<Sport, DataTransfer.Sport>();
 
+                cfg.CreateMap<DataTransfer.Event, Event>();
+                cfg.CreateMap<Event, DataTransfer.Event>();
+
+                cfg.CreateMap<DataTransfer.Competition, Competition>();
+                cfg.CreateMap<Competition, DataTransfer.Competition>();
+                
 
 
             });

@@ -2,7 +2,7 @@
 
 namespace SE.Web.Models
 {
-    public class Organization
+    public class Organization : ModelsBase
     {
         [Required]
         public string Name { get; set; }
